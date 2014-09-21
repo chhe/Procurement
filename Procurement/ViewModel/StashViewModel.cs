@@ -109,7 +109,7 @@ namespace Procurement.ViewModel
             get { return "Total " + configuredOrbType.ToString() + " in Orbs : " + ApplicationState.Stash[ApplicationState.CurrentLeague].GetTotal(configuredOrbType).ToString(); }
         }
 
-        public Dictionary<OrbType, double> TotalDistibution
+        public Dictionary<string, double> TotalDistibution
         {
             get 
             {
@@ -125,6 +125,14 @@ namespace Procurement.ViewModel
             get
             {
                 return ApplicationState.Stash[ApplicationState.CurrentLeague].GetTotalGemDistribution();
+            }
+        }
+
+        public Dictionary<string, double> CurrencyDistribution
+        {
+            get
+            {
+                return ApplicationState.Stash[ApplicationState.CurrentLeague].GetTotalCurrencyCount();
             }
         }
 
