@@ -93,7 +93,5 @@ namespace POEApi.Model
 
         [Description("Vaal Orb")]
         VaalOrb
-
-
     }
 }

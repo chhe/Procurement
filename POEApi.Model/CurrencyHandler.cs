@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Reflection;
 
 namespace POEApi.Model
 {
@@ -77,29 +75,9 @@ namespace POEApi.Model
             Dictionary<string, double> dictionaryForDisplay = new Dictionary<string, double>();
             foreach (KeyValuePair<OrbType, double> entry in orbDictionary)
             {
-                dictionaryForDisplay.Add(GetOrbNameForDisplay(entry.Key), entry.Value);
+                dictionaryForDisplay.Add(OrbTypeHelper.GetOrbNameForDisplay(entry.Key), entry.Value);
             }
             return dictionaryForDisplay;
-        }
-
-        private static string GetOrbNameForDisplay(OrbType orbType)
-        {
-            Type type = orbType.GetType();
-            MemberInfo[] memInfo = type.GetMember(orbType.ToString());
-
-            if (memInfo != null && memInfo.Length > 0)
-            {
-
-                object[] attrs = memInfo[0].GetCustomAttributes(typeof(DescriptionAttribute), false);
-                if (attrs != null && attrs.Length > 0)
-                {
-                    return ((DescriptionAttribute)attrs[0]).Description;
-                }
-
-            }
-
-            return orbType.ToString();
-
         }
     }
 }
