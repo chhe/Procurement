@@ -182,7 +182,7 @@
                 <TabControl Grid.Row="1" Grid.Column="4" Margin="0,15,0,0" >
                     <TabItem Header="Currency Breakdown" Style="{StaticResource NonImages}">
                         <Border BorderBrush="#FF76591B" BorderThickness="2" VerticalAlignment="Top" Background="Black" Margin="0,0,0,0" Height="420">
-                            <ScrollViewer VerticalScrollBarVisibility="Visible" CanContentScroll="True" Height="455">
+                            <ScrollViewer VerticalScrollBarVisibility="Visible" CanContentScroll="True" Margin="0,0,0,0">
                                 <Grid>
                                     <ItemsControl ItemsSource="{Binding CurrencyDistribution}">
                                         <ItemsControl.ItemTemplate>
@@ -247,7 +247,7 @@
                     </TabItem>
                     <TabItem Header="Advanced Search" Style="{StaticResource NonImages}">
                         <Border BorderBrush="#FF76591B" BorderThickness="2" VerticalAlignment="Top" Background="Black" Margin="0,0,0,0" Height="420">
-                            <ScrollViewer VerticalScrollBarVisibility="Visible" CanContentScroll="True" Height="455">
+                            <ScrollViewer VerticalScrollBarVisibility="Visible" CanContentScroll="True" Margin="0,0,0,0">
                                 <Grid>
                                     <StackPanel>
                                         <CheckBox Content="None" Foreground="#FFAB9066" Background="Black" Checked="CheckBox_Checked" />
@@ -276,7 +276,7 @@
                     </TabItem>
                     <TabItem Header="Gems" Style="{StaticResource NonImages}">
                         <Border BorderBrush="#FF76591B" BorderThickness="2" VerticalAlignment="Top" Background="Black" Margin="0,0,0,0" Height="420">
-                            <ScrollViewer VerticalScrollBarVisibility="Visible" CanContentScroll="True" Height="455">
+                            <ScrollViewer VerticalScrollBarVisibility="Visible" CanContentScroll="True" Margin="0,0,0,0">
                                 <Grid>
                                     <ItemsControl ItemsSource="{Binding GemDistribution}">
                                         <ItemsControl.ItemTemplate>
