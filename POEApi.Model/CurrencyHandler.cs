@@ -69,5 +69,15 @@ namespace POEApi.Model
                            .OrderByDescending(at => at.Value)
                            .ToDictionary(at => at.Key, at => at.Value);
         }
+
+        public static Dictionary<string, double> ConvertToDictionaryForDisplay(Dictionary<OrbType, double> orbDictionary)
+        {
+            Dictionary<string, double> dictionaryForDisplay = new Dictionary<string, double>();
+            foreach (KeyValuePair<OrbType, double> entry in orbDictionary)
+            {
+                dictionaryForDisplay.Add(OrbTypeHelper.GetOrbNameForDisplay(entry.Key), entry.Value);
+            }
+            return dictionaryForDisplay;
+        }
     }
 }

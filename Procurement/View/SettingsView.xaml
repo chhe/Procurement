@@ -84,9 +84,9 @@
 
                     <DataGrid Grid.Row="1" Name="CurrencyGrid" Background="Black" ItemsSource="{Binding CurrencyRatios}" SelectionMode="Single" AutoGenerateColumns="False" RowEditEnding="CurrencyGrid_RowEditEnding" Width="460" HorizontalAlignment="Left" Margin="5,0,0,0" BorderThickness="0" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Name" Binding="{Binding OrbType}" IsReadOnly="True" Width="150" Foreground="#FFAB9066"/>
-                            <DataGridTextColumn Header="OrbAmount" Binding="{Binding OrbAmount, Mode=TwoWay, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="False" Width="150" Foreground="#FFAB9066"  />
-                            <DataGridTextColumn Header="ChaosAmount" Binding="{Binding ChaosAmount, Mode=TwoWay, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="False" Width="150" Foreground="#FFAB9066"/>
+                            <DataGridTextColumn Header="Name" Binding="{Binding OrbName}" IsReadOnly="True" Width="150" Foreground="#FFAB9066"/>
+                            <DataGridTextColumn Header="Orb amount" Binding="{Binding OrbAmount, Mode=TwoWay, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="False" Width="143" Foreground="#FFAB9066"  />
+                            <DataGridTextColumn Header="Chaos amount" Binding="{Binding ChaosAmount, Mode=TwoWay, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="False" Width="143" Foreground="#FFAB9066"/>
                         </DataGrid.Columns>
                     </DataGrid>
 

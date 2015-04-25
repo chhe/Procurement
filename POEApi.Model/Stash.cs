@@ -169,14 +169,14 @@ namespace POEApi.Model
             return CurrencyHandler.GetTotal(target, Get<Currency>());
         }
 
-        public Dictionary<OrbType, double> GetTotalCurrencyDistribution(OrbType target)
+        public Dictionary<string, double> GetTotalCurrencyDistribution(OrbType target)
         {
-            return CurrencyHandler.GetTotalCurrencyDistribution(target, Get<Currency>());
+            return CurrencyHandler.ConvertToDictionaryForDisplay(CurrencyHandler.GetTotalCurrencyDistribution(target, Get<Currency>()));
         }
 
-        public Dictionary<OrbType, double> GetTotalCurrencyCount()
+        public Dictionary<string, double> GetTotalCurrencyCount()
         {
-            return CurrencyHandler.GetTotalCurrencyCount(Get<Currency>());
+            return CurrencyHandler.ConvertToDictionaryForDisplay(CurrencyHandler.GetTotalCurrencyCount(Get<Currency>()));
         }
 
         public SortedDictionary<string, int> GetTotalGemDistribution()
