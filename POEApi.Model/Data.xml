@@ -258,79 +258,97 @@
     </GearBaseType>
     <GearBaseType name="Map">
       <Item name="Crypt Map"/>
-      <Item name="Dried Lake Map"/>
+      <Item name="The Coward's Trial"/>
+      <Item name="Desert Map"/>
       <Item name="Dunes Map"/>
       <Item name="Dungeon Map"/>
       <Item name="Grotto Map"/>
-      <Item name="Orchard Map"/>
-      <Item name="Overgrown Ruin Map"/>
+      <Item name="Pit Map"/>
       <Item name="Tropical Island Map"/>
-
+      <Item name="Untainted Paradise"/>
       <Item name="Arcade Map"/>
-      <Item name="Arsenal Map"/>
       <Item name="Cemetery Map"/>
+      <Item name="Channel Map"/>
       <Item name="Mountain Ledge Map"/>
+      <Item name="Maelström of Chaos"/>
       <Item name="Sewer Map"/>
       <Item name="Thicket Map"/>
       <Item name="Wharf Map"/>
-
+      <Item name="The Apex of Sacrifice"/>
       <Item name="Ghetto Map"/>
       <Item name="Mud Geyser Map"/>
       <Item name="Museum Map"/>
+      <Item name="Quarry Map"/>
       <Item name="Reef Map"/>
+      <Item name="Mao Kun"/>
       <Item name="Spider Lair Map"/>
-      <Item name="Springs Map"/>
       <Item name="Vaal Pyramid Map"/>
-
-      <Item name="Catacomb Map"/>
+      <Item name="Vaults of Atziri"/>
+      <Item name="Arena Map"/>
       <Item name="Overgrown Shrine Map"/>
+      <Item name="Acton's Nightmare"/>
       <Item name="Promenade Map"/>
+      <Item name="Hall of Grandmasters"/>
+      <Item name="Phantasmagoria Map"/>
       <Item name="Shore Map"/>
       <Item name="Spider Forest Map"/>
       <Item name="Tunnel Map"/>
-
       <Item name="Bog Map"/>
       <Item name="Coves Map"/>
       <Item name="Graveyard Map"/>
       <Item name="Pier Map"/>
       <Item name="Underground Sea Map"/>
       <Item name="Villa Map"/>
-
       <Item name="Arachnid Nest Map"/>
+      <Item name="Catacomb Map"/>
+      <Item name="Olmec's Sanctum"/>
       <Item name="Colonnade Map"/>
       <Item name="Dry Woods Map"/>
       <Item name="Strand Map"/>
+      <Item name="Whakawairua Tuahu"/>
       <Item name="Temple Map"/>
-
+      <Item name="Poorjoy's Asylum"/>
       <Item name="Jungle Valley Map"/>
       <Item name="Labyrinth Map"/>
       <Item name="Mine Map"/>
+      <Item name="Oba's Cursed Trove"/>
       <Item name="Torture Chamber Map"/>
       <Item name="Waste Pool Map"/>
-
       <Item name="Canyon Map"/>
       <Item name="Cells Map"/>
       <Item name="Dark Forest Map"/>
       <Item name="Dry Peninsula Map"/>
-
+      <Item name="Orchard Map"/>
+      <Item name="Arid Lake Map"/>
       <Item name="Gorge Map"/>
-      <Item name="Maze Map"/>
+      <Item name="Malformation Map"/>
       <Item name="Residence Map"/>
       <Item name="Underground River Map"/>
-
       <Item name="Bazaar Map"/>
       <Item name="Necropolis Map"/>
+      <Item name="Death and Taxes"/>
       <Item name="Plateau Map"/>
-
+      <Item name="Volcano Map"/>
       <Item name="Academy Map"/>
       <Item name="Crematorium Map"/>
       <Item name="Precinct Map"/>
-
+      <Item name="Springs Map"/>
+      <Item name="Arsenal Map"/>
+      <Item name="Overgrown Ruin Map"/>
       <Item name="Shipyard Map"/>
-      <Item name="Shrine Map"/>
-
+      <Item name="Village Ruin Map"/>
+      <Item name="The Alluring Abyss"/>
       <Item name="Courtyard Map"/>
+      <Item name="Excavation Map"/>
+      <Item name="Wasteland Map"/>
+      <Item name="Waterways Map"/>
+      <Item name="Maze Map"/>
       <Item name="Palace Map"/>
+      <Item name="Shrine Map"/>
+      <Item name="Vaal Temple Map"/>
+      <Item name="Abyss Map"/>
+      <Item name="Colosseum Map"/>
+      <Item name="Core Map"/>
     </GearBaseType>
     <GearBaseType name="Gloves">
       <Item name="Iron Gauntlets"/>
@@ -492,6 +510,8 @@
       <Item name="Vaal Axe"/>
       <Item name="Despot Axe"/>
       <Item name="Void Axe"/>
+      <Item name="Runic Hatchet"/>
+      <Item name="Fleshripper"/>
     </GearBaseType>
     <GearBaseType name="Claw">
       <Item name="Nailed Fist"/>
@@ -516,6 +536,7 @@
       <Item name="Vaal Claw"/>
       <Item name="Imperial Claw"/>
       <Item name="Terror Claw"/>
+      <Item name="Gemini Claw"/>
     </GearBaseType>
     <GearBaseType name="Bow">
       <Item name="Crude Bow"/>
@@ -540,6 +561,7 @@
       <Item name="Spine Bow"/>
       <Item name="Imperial Bow"/>
       <Item name="Harbinger Bow"/>
+      <Item name="Assassin Bow"/>
     </GearBaseType>
     <GearBaseType name="Dagger">
       <Item name="Glass Shank"/>
@@ -564,6 +586,7 @@
       <Item name="Platinum Kris"/>
       <Item name="Imperial Skean"/>
       <Item name="Demon Dagger"/>
+      <Item name="Sai"/>
     </GearBaseType>
     <GearBaseType name="Mace">
       <Item name="Driftwood Club"/>
@@ -608,6 +631,9 @@
       <Item name="Meatgrinder"/>
       <Item name="Imperial Maul"/>
       <Item name="Terror Maul"/>
+      <Item name="Sambar Sceptre"/>
+      <Item name="Behemoth Mace"/>
+      <Item name="Coronal Maul"/>
     </GearBaseType>
     <GearBaseType name="Quiver">
       <Item name="Rugged Quiver"/>
@@ -669,6 +695,7 @@
       <Item name="Maelström Staff"/>
       <Item name="Imperial Staff"/>
       <Item name="Judgement Staff"/>
+      <Item name="Eclipse Staff"/>
     </GearBaseType>
     <GearBaseType name="Sword">
       <Item name="Rusted Sword"/>
@@ -736,6 +763,10 @@
       <Item name="Vaal Greatsword"/>
       <Item name="Lion Sword"/>
       <Item name="Infernal Sword"/>
+      <Item name="Exquisite Blade"/>
+      <Item name="Tiger Hook"/>
+      <Item name="Dragoon Sword"/>
+      <Item name="Grappler"/>
     </GearBaseType>
     <GearBaseType name="Shield">
       <Item name="Splintered Tower Shield"/>
@@ -849,6 +880,7 @@
       <Item name="Opal Wand"/>
       <Item name="Tornado Wand"/>
       <Item name="Prophecy Wand"/>
+      <Item name="Profane Wand"/>
     </GearBaseType>
 
     <GearBaseType name="DivinationCard">
@@ -902,6 +934,18 @@
       <Item name="The Warden"/>
       <Item name="The Watcher"/>
       <Item name="The Wind"/>
+      <Item name="The Siren"/>
+      <Item name="The Betrayal"/>
+      <Item name="The Wrath"/>
+      <Item name="The Artist"/>
+      <Item name="Doedre's Madness"/>
+      <Item name="The Encroaching Darkness"/>
+      <Item name="The Flora's Gift"/>
+      <Item name="The King's Blade"/>
+      <Item name="The Last One Standing"/>
+      <Item name="The One With All"/>
+      <Item name="The Pack Leader"/>
+      <Item name="The Spoiled Prince"/>
     </GearBaseType>
   </GearBaseTypes>
 </Data>
