@@ -2,12 +2,12 @@
 
 namespace Procurement.ViewModel.Filters.ForumExport
 {
-    public class MapLevelFilter : IFilter
+    public class MapTierFilter : IFilter
     {
-        private int level;
-        public MapLevelFilter(int level)
+        private int tier;
+        public MapTierFilter(int tier)
         {
-            this.level = level;
+            this.tier = tier;
         }
         public bool CanFormCategory
         {
@@ -16,12 +16,12 @@ namespace Procurement.ViewModel.Filters.ForumExport
 
         public string Keyword
         {
-            get { return "Map Level"; }
+            get { return "Map Tier"; }
         }
 
         public string Help
         {
-            get { return "Returns Map of a particular level"; }
+            get { return "Returns Map of a particular tier"; }
         }
 
         public FilterGroup Group
@@ -35,7 +35,7 @@ namespace Procurement.ViewModel.Filters.ForumExport
             if (map == null)
                 return false;
 
-            return map.MapLevel == level;
+            return map.MapTier == tier;
         }
     }
 }
