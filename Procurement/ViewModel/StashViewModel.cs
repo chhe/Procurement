@@ -78,6 +78,8 @@ namespace Procurement.ViewModel
                 first.TabItem.IsSelected = true;
         }
 
+        public bool LoggedIn { get { return !ApplicationState.Model.Offline; } }
+
         public void SetCategoryFilter(string category, bool? isChecked)
         {
             if (!isChecked.Value)
@@ -141,13 +143,26 @@ namespace Procurement.ViewModel
         public List<string> AvailableItems { get; private set; }
 
 
+        private DelegateCommand refreshCommand;
+        public DelegateCommand RefreshCommand
+        {
+            get { return refreshCommand; }
+            set { refreshCommand = value; }
+        }
+
         public StashViewModel(StashView stashView)
         {
             this.stashView = stashView;
+
+            refreshCommand = new DelegateCommand(x =>
+            {
+                ScreenController.Instance.LoadRefreshView();
+            });
+
             categoryFilter = new List<IFilter>();
             AvailableCategories = CategoryManager.GetAvailableCategories();
             tabsAndContent = new List<TabContent>();
-            stashView.Loaded += new System.Windows.RoutedEventHandler(stashView_Loaded);
+            stashView.Loaded += new RoutedEventHandler(stashView_Loaded);
             GetTabs = new DelegateCommand(GetTabList);
             ApplicationState.LeagueChanged += new PropertyChangedEventHandler(ApplicationState_LeagueChanged);
             stashView.tabControl.SelectionChanged += new SelectionChangedEventHandler(tabControl_SelectionChanged);
@@ -301,10 +316,7 @@ namespace Procurement.ViewModel
             ContextMenu contextMenu = new ContextMenu();
 
             if (!ApplicationState.Model.Offline)
-            {
                 contextMenu.Items.Add(getMenuItem(itemStash, "Refresh", refresh_Click));
-                contextMenu.Items.Add(getMenuItem(itemStash, "Refresh All Tabs", refreshAll_Click));
-            }
             
             contextMenu.Items.Add(getMenuItem(itemStash, "Set Tabwide Buyout", setTabBuyout_Click));
 
@@ -362,11 +374,6 @@ namespace Procurement.ViewModel
                 Settings.TabsBuyouts.Remove(tabName);
 
             Settings.SaveTabBuyouts();
-        }
-
-        void refreshAll_Click(object sender, RoutedEventArgs e)
-        {                  
-            ScreenController.Instance.LoadRefreshView();
         }
         
         void refresh_Click(object sender, RoutedEventArgs e)

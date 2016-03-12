@@ -92,6 +92,12 @@ namespace POEApi.Model
         Mirror,
 
         [Description("Vaal Orb")]
-        VaalOrb
+        VaalOrb,
+
+        [Description("Perandus Coin")]
+        PerandusCoin,
+
+        [Description("Unknown")]
+        Unknown
     }
 }
