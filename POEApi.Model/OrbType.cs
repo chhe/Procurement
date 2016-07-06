@@ -96,6 +96,8 @@ namespace POEApi.Model
 
         [Description("Perandus Coin")]
         PerandusCoin,
+        [Description("Silver Coin")]
+        SilverCoin,
 
         [Description("Unknown")]
         Unknown
