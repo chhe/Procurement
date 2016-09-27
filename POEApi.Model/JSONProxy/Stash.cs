@@ -49,6 +49,9 @@ namespace POEApi.Model.JSONProxy
     [DataContract]
     public class Item
     {
+        [DataMember(Name = "id")]
+        public string Id { get; set; }
+
         [DataMember(Name = "verified")]
         public bool Verified { get; set; }
 
@@ -138,6 +141,15 @@ namespace POEApi.Model.JSONProxy
 
         [DataMember(Name = "enchantMods")]
         public List<string> EnchantMods { get; set; }
+
+        [DataMember(Name= "ilvl")]
+        public int ItemLevel { get; set; }
+
+        [DataMember(Name = "prophecyText")]
+        public string ProphecyText { get; set; }
+
+        [DataMember(Name = "prophecyDiffText")]
+        public string ProphecyDifficultyText { get; set; }
     }
 
     [DataContract]
@@ -161,32 +173,6 @@ namespace POEApi.Model.JSONProxy
 
         [DataMember(Name = "tabs")]
         public List<Tab> Tabs { get; set; }
-    }
-
-    [DataContract(Name = "RootObject")]
-    public class Account
-    {
-        [DataMember(Name = "accountName")]
-        public string AccountName { get; set; }
-    }
-
-    [DataContract(Name = "RootObject")]
-    public class Character
-    {
-        [DataMember(Name = "name")]
-        public string Name { get; set; }
-
-        [DataMember(Name = "league")]
-        public string League { get; set; }
-
-        [DataMember(Name = "class")]
-        public string Class { get; set; }
-
-        [DataMember(Name = "classId")]
-        public int ClassId { get; set; }
-
-        [DataMember(Name = "level")]
-        public int Level { get; set; }
     }
 
     [DataContract(Name = "RootObject")]

@@ -22,6 +22,7 @@ namespace POEApi.Model
 
     public abstract class Item : ICloneable
     {
+        public string Id { get; set; }
         public bool Verified { get; private set; }
         public bool Identified { get; private set; }
         public int W { get; private set; }
@@ -40,7 +41,6 @@ namespace POEApi.Model
         public List<Property> Properties { get; set; }
         public bool IsQuality { get; private set; }
         public int Quality { get; private set; }
-        public int UniqueIDHash { get; set; }
         public bool Corrupted { get; private set; }
         public List<string> Microtransactions { get; set; }
         public List<String> EnchantMods { get; set; }
@@ -51,9 +51,11 @@ namespace POEApi.Model
         public int TradeY { get; set; }
         public string TradeInventoryId { get; set; }
         public string Character { get; set; }
+        public int ItemLevel { get; set; }
 
         protected Item(JSONProxy.Item item)
         {
+            this.Id = item.Id;
             this.Verified = item.Verified;
             this.Identified = item.Identified;
             this.W = item.W;
@@ -71,6 +73,7 @@ namespace POEApi.Model
             this.ItemType = Model.ItemType.UnSet;
             this.CraftedMods = item.CraftedMods;
             this.EnchantMods = item.EnchantMods;
+            this.ItemLevel = item.ItemLevel;
 
             if (item.Properties != null)
             {

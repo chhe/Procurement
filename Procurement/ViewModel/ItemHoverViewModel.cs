@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Media.Animation;
+
 using POEApi.Model;
 
 namespace Procurement.ViewModel
@@ -31,7 +33,13 @@ namespace Procurement.ViewModel
         public List<string> CraftedMods { get; set; }
 
         public bool HasCraftedMods { get; private set; }
+        public bool IsProphecy { get; set; }
+        public string ProphecyText { get; set; }
+        public string ProphecyDifficultyText { get; set; }
+        public List<string> ProphecyFlavour { get; set; }
+        public bool IsGear { get; set; }
 
+        public string ItemLevel { get; set; }
 
         public ItemHoverViewModel(Item item)
         {
@@ -66,6 +74,21 @@ namespace Procurement.ViewModel
             this.HasCraftedMods = CraftedMods != null && CraftedMods.Count > 0;
             this.HasEnchantMods = item.EnchantMods.Count > 0;
             this.HasRequirements = Requirements != null && Requirements.Count > 0;
+
+            setProphecyProperties(item);
+        }
+
+        private void setProphecyProperties(Item item)
+        {
+            var prophecy = item as Prophecy;
+            if (prophecy == null)
+                return;
+
+            this.IsProphecy = true;
+            this.ProphecyText = prophecy.ProphecyText;
+            this.ProphecyDifficultyText = prophecy.ProphecyDifficultyText;
+            this.ProphecyFlavour = prophecy.FlavourText;
+            this.DescriptionText = string.Empty;
         }
 
         private void setTypeSpecificProperties(Item item)
@@ -83,6 +106,8 @@ namespace Procurement.ViewModel
 
         private void setGearProperties(Item item, Gear gear)
         {
+            this.IsGear = true;
+            this.ItemLevel = string.Format("Item Level : {0}", item.ItemLevel);
             this.Requirements = gear.Requirements;
             this.ImplicitMods = gear.Implicitmods;
 

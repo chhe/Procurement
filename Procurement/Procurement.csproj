@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
@@ -32,7 +32,7 @@
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <PlatformTarget>x86</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -153,6 +153,7 @@
     <Compile Include="ViewModel\Filters\ForumExport\CraftedModFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\CurrencyFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\EnchantModFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\EssenceFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\GearSearchFilters.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\GemLevelFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\IncreasedDamageFilter.cs" />
@@ -162,12 +163,16 @@
     <Compile Include="ViewModel\Filters\ForumExport\MovementSpeed.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\PercentEnergyShieldFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\PercentLifeFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\ProphecyFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\SixBlueSockets.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\SixGreenSockets.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\SixLink.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\SixRedSockets.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\SocketColourFilter.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\CurrencyVisitor.cs" />
+    <Compile Include="ViewModel\ForumExportVisitors\EssenceVisitor.cs" />
+    <Compile Include="ViewModel\ForumExportVisitors\ProphecyVisitor.cs" />
+    <Compile Include="ViewModel\Recipes\MatchedSet.cs" />
     <Compile Include="ViewModel\SetTabBuyoutViewModel.cs" />
     <Compile Include="ViewModel\TradeSettingsViewModel.cs" />
     <Compile Include="ViewModel\Cache\BitmapCache.cs" />
@@ -319,7 +324,7 @@
     <Compile Include="ViewModel\Recipes\GCPRecipe.cs" />
     <Compile Include="ViewModel\Recipes\GlassblowersBaubleRecipe.cs" />
     <Compile Include="ViewModel\Recipes\MinimumQualityRecipe.cs" />
-    <Compile Include="ViewModel\Recipes\OneChaosRecipe.cs" />
+    <Compile Include="ViewModel\Recipes\RareSetRecipe.cs" />
     <Compile Include="ViewModel\Recipes\Recipe.cs" />
     <Compile Include="ViewModel\Recipes\RecipeManager.cs" />
     <Compile Include="ViewModel\Recipes\RecipeResult.cs" />
@@ -395,6 +400,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -683,6 +689,11 @@
     <EmbeddedResource Include="ForumExportTemplate.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ItemHover\ItemsHeaderProphecyLeft.png" />
+    <Resource Include="Images\ItemHover\ItemsHeaderProphecyMiddle.png" />
+    <Resource Include="Images\ItemHover\ItemsHeaderProphecyRight.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
