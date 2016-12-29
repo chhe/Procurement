@@ -96,9 +96,11 @@ namespace POEApi.Model
 
         [Description("Perandus Coin")]
         PerandusCoin,
+
         [Description("Silver Coin")]
         SilverCoin,
 
+        //Must always be last
         [Description("Unknown")]
         Unknown
     }
