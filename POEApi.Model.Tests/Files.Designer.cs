@@ -73,6 +73,16 @@ namespace POEApi.Model.Tests {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] SampleCurrencyTabWithShards {
+            get {
+                object obj = ResourceManager.GetObject("SampleCurrencyTabWithShards", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] SampleInventory {
             get {
                 object obj = ResourceManager.GetObject("SampleInventory", resourceCulture);
@@ -93,6 +103,16 @@ namespace POEApi.Model.Tests {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] SampleStashWithDivineVessel {
+            get {
+                object obj = ResourceManager.GetObject("SampleStashWithDivineVessel", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] SampleStashWithEssences {
             get {
                 object obj = ResourceManager.GetObject("SampleStashWithEssences", resourceCulture);
@@ -103,9 +123,49 @@ namespace POEApi.Model.Tests {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] SampleStashWithLeagueStoneChargeInfo {
+            get {
+                object obj = ResourceManager.GetObject("SampleStashWithLeagueStoneChargeInfo", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] SampleStashWithLitheBlade {
+            get {
+                object obj = ResourceManager.GetObject("SampleStashWithLitheBlade", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] SampleStashWithRelic {
             get {
                 object obj = ResourceManager.GetObject("SampleStashWithRelic", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] SampleStashWithRemnantOfCorruption {
+            get {
+                object obj = ResourceManager.GetObject("SampleStashWithRemnantOfCorruption", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] SampleStashWithSaintlyChainmail {
+            get {
+                object obj = ResourceManager.GetObject("SampleStashWithSaintlyChainmail", resourceCulture);
                 return ((byte[])(obj));
             }
         }

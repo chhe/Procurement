@@ -1,5 +1,8 @@
-﻿namespace POEApi.Model
+﻿using System.Diagnostics;
+
+namespace POEApi.Model
 {
+    [DebuggerDisplay("{Amount}/{MaxSize}")]
     public class StackInfo
     {
         public int Amount { get; set; }
@@ -21,6 +24,11 @@
         {
             this.Charges = charges;
             this.MaxCharges = maxCharges;
+        }
+
+        public override string ToString()
+        {
+            return $"{Charges}/{MaxCharges}";
         }
     }
 }

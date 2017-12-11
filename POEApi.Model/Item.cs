@@ -74,7 +74,7 @@ namespace POEApi.Model
             this.ItemType = Model.ItemType.UnSet;
             this.CraftedMods = item.CraftedMods;
             this.EnchantMods = item.EnchantMods;
-            this.ItemLevel = item.ItemLevel;
+            this.ItemLevel = item.Ilvl;
 
             if (item.Properties != null)
             {
@@ -88,8 +88,8 @@ namespace POEApi.Model
             }
 
             this.Corrupted = item.Corrupted;
-            this.Microtransactions = item.CosmeticMods == null ? new List<string>() : item.CosmeticMods;
-            this.EnchantMods = item.EnchantMods == null ? new List<string>() : item.EnchantMods;
+            this.Microtransactions = item.CosmeticMods ?? new List<string>();
+            this.EnchantMods = item.EnchantMods ?? new List<string>();
 
             this.TradeX = this.X;
             this.TradeY = this.Y;
@@ -106,33 +106,14 @@ namespace POEApi.Model
             return "http://webcdn.pathofexile.com" + url;
         }
 
-        protected abstract int getConcreteHash();
-
-        protected int getHash()
-        {
-            var anonomousType = new
-            {
-                f = this.IconURL,
-                f1 = this.League,
-                f2 = this.Name,
-                f3 = this.TypeLine,
-                f4 = this.DescrText,
-                f5 = this.Explicitmods != null ? string.Join(string.Empty, this.Explicitmods.ToArray()) : string.Empty,
-                f6 = this.Properties != null ? string.Join(string.Empty, this.Properties.Select(p => string.Concat(p.DisplayMode, p.Name, string.Join(string.Empty, p.Values.Select(t => string.Concat(t.Item1, t.Item2)).ToArray()))).ToArray()) : string.Empty,
-                f7 = getConcreteHash()
-            };
-
-            return anonomousType.GetHashCode();
-        }
-
         protected Rarity getRarity(JSONProxy.Item item)
         {
             //Looks like isRelic is coming across the wire as an additional field but coincidentally 9 was the correct frame type here.
-            if (item.frameType == 9 || item.IsRelic)
+            if (item.FrameType == 9 || item.IsRelic)
                 return Rarity.Relic;
 
-            if (item.frameType <= 3)
-                return (Rarity)item.frameType;
+            if (item.FrameType <= 3)
+                return (Rarity)item.FrameType;
 
             return Rarity.Normal;
         }

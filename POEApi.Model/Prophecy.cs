@@ -12,12 +12,7 @@ namespace POEApi.Model
         {
             this.ProphecyText = item.ProphecyText;
             this.FlavourText = item.FlavourText;
-            this.ProphecyDifficultyText = item.ProphecyDifficultyText;
-        }
-
-        protected override int getConcreteHash()
-        {
-            return new { id = Id }.GetHashCode();
+            this.ProphecyDifficultyText = item.ProphecyDiffText;
         }
     }
 }

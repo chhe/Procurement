@@ -587,6 +587,7 @@
       <Item name="Imperial Skean"/>
       <Item name="Demon Dagger"/>
       <Item name="Sai"/>
+      <Item name="Trisula"/>
     </GearBaseType>
     <GearBaseType name="Mace">
       <Item name="Driftwood Club"/>
@@ -634,6 +635,7 @@
       <Item name="Sambar Sceptre"/>
       <Item name="Behemoth Mace"/>
       <Item name="Coronal Maul"/>
+      <Item name="Morning Star"/>
     </GearBaseType>
     <GearBaseType name="Quiver">
       <Item name="Rugged Quiver"/>
@@ -767,6 +769,7 @@
       <Item name="Tiger Hook"/>
       <Item name="Dragoon Sword"/>
       <Item name="Grappler"/>
+      <Item name="Lithe Blade"/>
     </GearBaseType>
     <GearBaseType name="Shield">
       <Item name="Splintered Tower Shield"/>
@@ -1058,6 +1061,12 @@
       <Item name="The Wolven King's Bite"/>
       <Item name="The Wolverine"/>
       <Item name="The Wretched"/>
+      <Item name="The Ruthless Ceinture"/>
+      <Item name="No Traces"/>
+      <Item name="The Realm"/>
+      <Item name="The Eye of the Dragon"/>
+      <Item name="The Blazing Fire"/>
+      <Item name="Left to Fate"/>
     </GearBaseType>
   </GearBaseTypes>
 </Data>

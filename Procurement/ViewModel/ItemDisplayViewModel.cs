@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
+using POEApi.Infrastructure;
 using POEApi.Model;
 using Procurement.Controls;
 using Procurement.Utility;
@@ -42,15 +43,31 @@ namespace Procurement.ViewModel
 
         public Image getImage()
         {
-            var img = new Image
+            if (Item != null)
             {
-                Source = ApplicationState.BitmapCache[Item.IconURL],
-                Stretch = Stretch.None
-            };
+                try
+                {
 
-            CreateItemPopup(img, Item);
+                    var img = new Image
+                    {
+                        Source = ApplicationState.BitmapCache[Item.IconURL],
+                        Stretch = Stretch.None
+                    };
 
-            return img;
+                    CreateItemPopup(img, Item);
+
+                    return img;
+                }
+                catch (Exception e)
+                {
+                    Logger.Log(Item.Name);
+                    Logger.Log(e);
+                    //Don't crash - just give me a blank image.
+                    return null;
+                }
+            }
+
+            return null;
         }
 
         public UIElement GetSocket()

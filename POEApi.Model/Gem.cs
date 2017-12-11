@@ -18,7 +18,7 @@ namespace POEApi.Model
             this.ItemType = Model.ItemType.Gem;
 
             this.Socket = item.Socket;
-            this.Color = item.Color;
+            this.Color = item.Colour;
             this.Requirements = ProxyMapper.GetRequirements(item.Requirements);
             this.Level = getLevel();
         }
@@ -33,19 +33,6 @@ namespace POEApi.Model
                 return 1;
             
             return level;
-        }
-
-        protected override int getConcreteHash()
-        {
-            var anonomousType = new
-            {
-                f1 = Quality,
-                f2 = this.Requirements != null ? string.Join(string.Empty, this.Requirements.Select(r => string.Concat(r.Name, r.Value)).ToArray()) : string.Empty,
-                f3 = Color,
-                f4 = Socket
-            };
-
-            return anonomousType.GetHashCode();
         }
     }
 }

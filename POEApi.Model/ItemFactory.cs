@@ -1,6 +1,6 @@
-﻿using POEApi.Infrastructure;
-using System;
+﻿using System;
 using System.Linq;
+using POEApi.Infrastructure;
 
 namespace POEApi.Model
 {
@@ -13,10 +13,10 @@ namespace POEApi.Model
                 item.Name = filterString(item.Name);
                 item.TypeLine = filterString(item.TypeLine);
 
-                if(!string.IsNullOrWhiteSpace(item.ProphecyText))
+                if (!string.IsNullOrWhiteSpace(item.ProphecyText))
                     return new Prophecy(item);
 
-                if (item.frameType == 4)
+                if (item.FrameType == 4)
                     return new Gem(item);
 
                 if (item.DescrText != null && item.DescrText.ToLower() == "right click this item then left click a location on the ground to create the object.")
@@ -25,11 +25,21 @@ namespace POEApi.Model
                 if (item.TypeLine.Contains("Leaguestone"))
                     return new Leaguestone(item);
 
-                if (item.frameType == 5)
+                if (item.FrameType == 5)
                     return GetCurrency(item);
 
                 if (item.TypeLine.Contains("Map") && item.DescrText != null && item.DescrText.Contains("Travel to this Map"))
                     return new Map(item);
+
+                if (item.FrameType == 0)
+                {
+                    if (item.TypeLine == "Divine Vessel")
+                        return new DivineVessel(item);
+
+                    if(item.TypeLine == "Offering to the Goddess")
+                        return new Offering(item);
+                }
+                
 
                 return new Gear(item);
             }
@@ -38,7 +48,7 @@ namespace POEApi.Model
                 Logger.Log(ex);
                 var errorMessage = "ItemFactory unable to instantiate type : " + item.TypeLine;
                 Logger.Log(errorMessage);
-                throw new Exception(errorMessage);
+                throw;
             }
         }
 
@@ -55,13 +65,16 @@ namespace POEApi.Model
             if (typeline.Contains("blessing"))
                 return new BreachBlessing(item);
 
+            if (item.TypeLine.Contains("Sextant"))
+                return new Sextant(item);
+
             return new Currency(item);
         }
 
 
         private static string filterString(string json)
         {
-            var items = json.Split(new string[] { ">>" }, StringSplitOptions.None);
+            var items = json.Split(new[] {">>"}, StringSplitOptions.None);
 
             if (items.Count() == 1)
                 return json;

@@ -99,6 +99,24 @@ namespace POEApi.Model
 
         [Description("Silver Coin")]
         SilverCoin,
+        TransmutationShard,
+        AlterationShard,
+        AncientOrb,
+        AncientShard,
+        AnnulmentShard,
+        BindingShard,
+        ChaosShard,
+        EngineersOrb,
+        EngineersShard,
+        ExaltedShard,
+        HarbingersOrb,
+        HarbingersShard,
+        HorizonShard,
+        MirrorShard,
+        AnnulmentOrb,
+        BindingOrb,
+        HorizonOrb,
+        RegalShard,
 
         //Must always be last
         [Description("Unknown")]

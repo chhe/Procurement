@@ -1,10 +1,9 @@
-﻿using System.IO;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
+﻿using System.Linq;
 using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using POEApi.Transport;
+using static POEApi.Model.Tests.UnitTestHelper;
 
 namespace POEApi.Model.Tests
 {
@@ -49,7 +48,7 @@ namespace POEApi.Model.Tests
 
                 Assert.IsNotNull(characters);
 
-                Assert.AreEqual(characters.Count, 5);
+                Assert.AreEqual(5, characters.Count);
             }
         }
 
@@ -67,7 +66,7 @@ namespace POEApi.Model.Tests
 
                 Assert.IsNotNull(stash);
 
-                Assert.AreEqual(stash.Tabs.Count, 17);
+                Assert.AreEqual(17, stash.Tabs.Count);
             }
         }
 
@@ -83,7 +82,7 @@ namespace POEApi.Model.Tests
 
                 Assert.IsNotNull(stash);
 
-                Assert.AreEqual(stash.Tabs.Count, 83);
+                Assert.AreEqual(83, stash.Tabs.Count);
 
                 var items = stash.GetItemsByTab(14);
 
@@ -92,7 +91,7 @@ namespace POEApi.Model.Tests
         }
 
         [TestMethod]
-        public void GetRelichStashTest()
+        public void GetRelicStashTest()
         {
             string fakeStashInfo = Encoding.UTF8.GetString(Files.SampleStashWithRelic);
             using (var stream = GenerateStreamFromString(fakeStashInfo))
@@ -103,14 +102,53 @@ namespace POEApi.Model.Tests
 
                 Assert.IsNotNull(stash);
 
-                Assert.AreEqual(stash.Tabs.Count, 27);
+                Assert.AreEqual(27, stash.Tabs.Count);
 
                 var items = stash.GetItemsByTab(7);
 
-                Assert.AreEqual(items.OfType<Gear>().Count(x => x.Rarity == Rarity.Relic), 1);
+                Assert.AreEqual(1, items.OfType<Gear>().Count(x => x.Rarity == Rarity.Relic));
             }
         }
 
+        [TestMethod]
+        public void GetLitheBladeStashTest()
+        {
+            string fakeStashInfo = Encoding.UTF8.GetString(Files.SampleStashWithLitheBlade);
+            using (var stream = GenerateStreamFromString(fakeStashInfo))
+            {
+                _mockTransport.Setup(m => m.GetStash(0, "", "", false)).Returns(stream);
+
+                var stash = _model.GetStash(0, "", "");
+
+                Assert.IsNotNull(stash);
+
+                Assert.AreEqual(39, stash.Tabs.Count);
+
+                var items = stash.GetItemsByTab(12);
+
+                Assert.AreEqual(1, items.OfType<Gear>().Count(x => x.TypeLine == "Lithe Blade" && x.GearType == GearType.Sword));
+            }
+        }
+
+        [TestMethod]
+        public void GetSaintlyChainmailStashTest()
+        {
+            string fakeStashInfo = Encoding.UTF8.GetString(Files.SampleStashWithSaintlyChainmail);
+            using (var stream = GenerateStreamFromString(fakeStashInfo))
+            {
+                _mockTransport.Setup(m => m.GetStash(0, "", "", false)).Returns(stream);
+
+                var stash = _model.GetStash(0, "", "");
+
+                Assert.IsNotNull(stash);
+
+                Assert.AreEqual(39, stash.Tabs.Count);
+
+                var items = stash.GetItemsByTab(19);
+
+                Assert.AreEqual(1, items.OfType<Gear>().Count(x => x.TypeLine == "Saintly Chainmail" && x.GearType == GearType.Chest));
+            }
+        }
 
         [TestMethod]
         public void GetAccountNameTest()
@@ -123,18 +161,52 @@ namespace POEApi.Model.Tests
 
                 var account = _model.GetAccountName();
 
-                Assert.AreEqual(account, "fakeAccountName");
+                Assert.AreEqual("fakeAccountName", account);
             }
         }
 
-        public Stream GenerateStreamFromString(string s)
+        [TestMethod]
+        public void GetShardCurrencyStashTest()
         {
-            var stream = new MemoryStream();
-            var writer = new StreamWriter(stream);
-            writer.Write(s);
-            writer.Flush();
-            stream.Position = 0;
-            return stream;
+            string fakeStashInfo = Encoding.UTF8.GetString(Files.SampleCurrencyTabWithShards);
+            using (var stream = GenerateStreamFromString(fakeStashInfo))
+            {
+                _mockTransport.Setup(m => m.GetStash(0, "", "", false)).Returns(stream);
+
+                var stash = _model.GetStash(0, "", "");
+
+                Assert.IsNotNull(stash);
+
+                Assert.AreEqual(26, stash.Tabs.Count);
+
+                var items = stash.GetItemsByTab(0);
+
+                Assert.AreEqual(1, items.OfType<Currency>().Count(x => x.Type == OrbType.EngineersOrb));
+                Assert.AreEqual(1, items.OfType<Currency>().Count(x => x.Type == OrbType.BindingOrb));
+                Assert.AreEqual(1, items.OfType<Currency>().Count(x => x.Type == OrbType.BindingShard));
+            }
+        }
+
+        [TestMethod]
+        public void GetChargeTest()
+        {
+            string fakeStashInfo = Encoding.UTF8.GetString(Files.SampleStashWithLeagueStoneChargeInfo);
+            using (var stream = GenerateStreamFromString(fakeStashInfo))
+            {
+                _mockTransport.Setup(m => m.GetStash(0, "", "", false)).Returns(stream);
+
+                var stash = _model.GetStash(0, "", "");
+
+                Assert.IsNotNull(stash);
+
+                Assert.AreEqual(361, stash.Tabs.Count);
+
+                var items = stash.GetItemsByTab(5);
+
+                var leagueStones = items.OfType<Leaguestone>();
+                
+                Assert.IsTrue(leagueStones.All(x => x.Charges.ToString() == "5/5"));
+            }
         }
     }
 }
